@@ -10,7 +10,33 @@
 #' @examples
 #' outstock_jherp_selectBydata()
 outstock_jherp_selectBydata<- function(erptoken,year,MONTH) {
-  sql=paste0("select * from rds_vw_sale_outstock_CN
+  sql=paste0("select FARRIVALDATE,
+FSALEORGID,
+FSALESGROUPID,
+FSALESMANID,
+F_kd_BaseProperty,
+FCustomerID,
+FSETTLECURRID,
+FEXCHANGERATE,
+FMATERIALID,
+FMATERIALNAME,
+F_QH_INDUSTRY,
+FBILLNO,
+FDOCUMENTSTATUS,
+FBILLTYPEID,
+FUNITID,
+FREALQTY,
+FPRICE,
+FTAXPRICE,
+FTAXAMOUNT,
+FAMOUNT,
+FALLAMOUNT,
+FAMOUNT_LC,
+FALLAMOUNT_LC,
+FISFREE,
+F_RD_FANLI,
+FCustMaterialName
+from rds_vw_sale_outstock_CN
   where year(FARRIVALDATE)='",year,"' and MONTH(FARRIVALDATE)='",MONTH,"'
 ")
 
@@ -28,12 +54,16 @@ outstock_jherp_selectBydata<- function(erptoken,year,MONTH) {
 #' sal_outStock_select()
 sal_outStock_select<- function(token) {
 
-  sql=paste0("select FArraiveGoodsDate as 到货日期,a.FSaleOrgName as 销售组织,a.FSaleGroupName as 销售组,a.FSaleManName as 销售员,
-a.FCustomerNumber as 客户编码,a.FCustomerName as 客户,a.FSettleCurrencyName as 结算币别,a.FExchangeRate as 汇率 ,FMaterialNumber as 物料编码 ,
+  sql=paste0("
+  select FArraiveGoodsDate as 到货日期,a.FSaleOrgName as 销售组织,a.FSaleGroupName as 销售组,a.FSaleManName as 销售员,
+a.FCustomerNumber as 客户编码,a.FCustomerName as 客户,a.FSettleCurrencyName as 结算币别,a.FExchangeRate as 汇率 ,
+FCustMtrlName as 客户物料名称,FMaterialNumber as 物料编码 ,
 a.FMaterialName as 物料名称,a.FIndustryName as 行业,a.FBillNo as 单据编号,a.FBillStatus as 单据状态,a.FBillType as 单据类型 ,
 a.FStockUnitName as 库存单位,a.FRealQty as 实发数量,a.Fprice as 单价,a.FTaxPrice as 含税单价 ,a.FTaxAmount as 税额,a.Famount as 金额,
 a.FAllAmount as 价税合计,a.Famount_LC as 金额_本位币,a.FAllAmount_LC as 价税合计_本位币 ,a.FIsFree as 是否赠品,
-a.FIsRebate as 是否返利 from rds_dms_t_sal_outStock a
+a.FIsRebate as 是否返利
+from rds_dms_t_sal_outStock a
+
 ")
 
   res=tsda::sql_select2(token = token,sql = sql)

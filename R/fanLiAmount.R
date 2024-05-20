@@ -73,7 +73,13 @@ b.FRebateRate as FRebateRate,
 and abs(a.FReceiveAmount_LC/10000 )< b.FEndRealAmount
 and a.Fdate >= b.FEffectDate
 and  a.Fdate <= b.FExpireDate
-and year(Fdate)='",year,"' and MONTH(Fdate)='",MONTH,"'")
+and year(Fdate)='",year,"' and MONTH(Fdate)='",MONTH,"'
+where b.FCustomerName = a.FCustomerName
+ and abs(a.FReceiveAmount_LC/10000)>=b.FStartRealAmount
+and abs(a.FReceiveAmount_LC/10000 )< b.FEndRealAmount
+and a.Fdate >= b.FEffectDate
+and  a.Fdate <= b.FExpireDate
+             ")
   res=tsda::sql_update2(token = dmstoken,sql_str  = sql)
   return(res)
 }

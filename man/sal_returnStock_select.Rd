@@ -2,7 +2,7 @@
 % Please edit documentation in R/sal_returnStock.R
 \name{sal_returnStock_select}
 \alias{sal_returnStock_select}
-\title{查询手工调整单}
+\title{查询销售退货单}
 \usage{
 sal_returnStock_select(token)
 }
@@ -10,7 +10,7 @@ sal_returnStock_select(token)
 无返回值
 }
 \description{
-查询手工调整单
+查询销售退货单
 }
 \examples{
 sal_returnStock_select()
