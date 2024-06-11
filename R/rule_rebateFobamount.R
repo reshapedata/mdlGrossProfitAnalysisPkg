@@ -11,6 +11,7 @@ rule_rebateFobamount_view<- function(token) {
 
   sql=paste0("select
 Fbillno as 单据编号,
+FMaterialNumber as 物料编码,
 FCountStandard as 计提依据
  from Rds_t_rebate_rule_fobamount
 
@@ -28,16 +29,17 @@ FCountStandard as 计提依据
 #' @param token
 #' @param FBillNo
 #' @param  FCountStandard
+#' @param FMaterialNumber
 #'
 #' @return
 #' @export
 #'
 #' @examples
 #' rule_rebateFobamount_add()
-rule_rebateFobamount_add<- function(token,FBillNo,FCountStandard) {
+rule_rebateFobamount_add<- function(token,FBillNo,FMaterialNumber,FCountStandard) {
 
   sql=paste0("
-  insert into Rds_t_rebate_rule_fobamount values('",FBillNo,"','",FCountStandard,"' )
+  insert into Rds_t_rebate_rule_fobamount values('",FBillNo,"','",FMaterialNumber,"','",FCountStandard,"' )
              ")
 
   res=tsda::sql_update2(token = token,sql_str = sql)
@@ -50,14 +52,17 @@ rule_rebateFobamount_add<- function(token,FBillNo,FCountStandard) {
 #'
 #' @param token
 #' @param FBillNo
+#' @param FMaterialNumber
 #'
 #' @return
 #' @export
 #'
 #' @examples rule_rebateFobamount_delete()
-rule_rebateFobamount_delete<- function(token,FBillNo) {
+rule_rebateFobamount_delete<- function(token,FBillNo,FMaterialNumber) {
 
-  sql=paste0("delete Rds_t_rebate_rule_fobamount where FBillNo='",FBillNo,"'")
+  sql=paste0("delete Rds_t_rebate_rule_fobamount where FBillNo='",FBillNo,"'
+  and FMaterialNumber='",FMaterialNumber,"'
+             "  )
 
   res=tsda::sql_delete2(token = token,sql_str = sql)
   return(res)

@@ -11,7 +11,7 @@
 commision_management_select<- function(dmstoken) {
 
   sql=paste0("
-select a.FDate as 到货日期,
+select a.FDate as 出库日期,
 a.FSaleOrgName as 销售组织,
 a.FSaleGroupName as 销售组,
 a.FSaleManName as 销售员,
@@ -105,7 +105,7 @@ TRUNCATE TABLE rds_t_commision_res_mngr")
 #' commision_management_selectBydata()
 commision_management_selectBydata<- function(dmstoken,year,MONTH) {
 
-  sql=paste0("select a.FDate as 到货日期,
+  sql=paste0("select a.FDate as 出库日期,
 a.FSaleOrgName as 销售组织,
 a.FSaleGroupName as 销售组,
 a.FSaleManName as 销售员,

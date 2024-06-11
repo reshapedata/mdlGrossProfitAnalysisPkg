@@ -27,10 +27,12 @@ TRUNCATE TABLE rds_dms_t_res_rebate_qtySum")
 #' rebate_detailQty_actual_selectBymonth()
 rebate_detailQty_actual_selectBymonth<- function(dmstoken) {
 
-  sql=paste0("select
+  sql=paste0(" select
 FCustomerName as  客户名称,
 FSaleOrgName as  组织,
 FRebateMethod as  返利方式,
+FSumQty as  计提发货量汇总,
+FRebateRule as 客户返利执行标准,
 Findustry as  行业,
 FProductName as  型号,
 Fyear as  年份,

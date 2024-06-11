@@ -9,17 +9,19 @@ rule_fanLiQty_add(
   FBillNo,
   FCustomerName,
   FIndexType,
+  FIndexCustomerName,
   FStartRealQty,
   FEndRealQty,
   FUnit,
   FRebateProduct,
+  FRebateType,
   FRebateRate,
   FEffectDate,
   FExpireDate
 )
 }
 \arguments{
-\item{FRebateProduct}{}
+\item{FRebateType}{}
 }
 \value{
 无返回值
