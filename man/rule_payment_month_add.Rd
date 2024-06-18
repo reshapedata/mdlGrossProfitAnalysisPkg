@@ -7,6 +7,7 @@
 rule_payment_month_add(
   token,
   FContractNumber,
+  FSaleOrgName,
   FCustomerName,
   Fyear,
   Fmonth,
@@ -14,7 +15,7 @@ rule_payment_month_add(
 )
 }
 \arguments{
-\item{token}{}
+\item{FSaleOrgName}{}
 }
 \value{
 

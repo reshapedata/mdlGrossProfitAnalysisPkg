@@ -10,6 +10,7 @@
 rule_payment_month_view<- function(token) {
 
   sql=paste0("select FContractNumber as 合同协议号,
+FSaleOrgName as 组织,
 FCustomerName AS 客户名称,
 Fyear as 年份,
 Fmonth as 月份,
@@ -32,16 +33,17 @@ from Rds_t_rule_payment_USD
 #' @param Fmonth
 #' @param FPaymentAmount
 #' @param token
+#' @param FSaleOrgName
 #'
 #' @return
 #' @export
 #'
 #' @examples
 #' rule_payment_month_add()
-rule_payment_month_add<- function(token,FContractNumber,FCustomerName,Fyear,Fmonth,FPaymentAmount) {
+rule_payment_month_add<- function(token,FContractNumber,FSaleOrgName,FCustomerName,Fyear,Fmonth,FPaymentAmount) {
 
   sql=paste0("
-  insert into Rds_t_rule_payment_USD values('",FContractNumber,"','",FCustomerName,"','",Fyear,"','",Fmonth,"','",FPaymentAmount,"')
+  insert into Rds_t_rule_payment_USD values('",FContractNumber,"','",FSaleOrgName,"','",FCustomerName,"','",Fyear,"','",Fmonth,"','",FPaymentAmount,"')
        ")
 
   res=tsda::sql_update2(token = token,sql_str = sql)
