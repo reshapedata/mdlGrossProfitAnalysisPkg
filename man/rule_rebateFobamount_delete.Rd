@@ -4,10 +4,13 @@
 \alias{rule_rebateFobamount_delete}
 \title{Title 数据中台计提依据删除}
 \usage{
-rule_rebateFobamount_delete(token, FBillNo)
+rule_rebateFobamount_delete(token, FBillNo, FMaterialNumber)
 }
 \arguments{
-\item{FBillNo}{}
+\item{FMaterialNumber}{}
+}
+\value{
+
 }
 \description{
 Title 数据中台计提依据删除

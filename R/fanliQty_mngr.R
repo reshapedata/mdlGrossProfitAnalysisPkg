@@ -12,7 +12,7 @@ fanliQty_mngr_select<- function(dmstoken) {
 
   sql=paste0("
 select
-FDate as 日期,
+FDate as 出库日期,
 FSaleOrgName as 销售组织,
 FSaleGroupName as 销售组,
 FSaleManName as 销售员,
@@ -137,7 +137,7 @@ fanliQty_mngr_selectBydata<- function(dmstoken,year,MONTH) {
 
   sql=paste0("
 select
-FDate as 日期,
+FDate as 出库日期,
 FSaleOrgName as 销售组织,
 FSaleGroupName as 销售组,
 FSaleManName as 销售员,

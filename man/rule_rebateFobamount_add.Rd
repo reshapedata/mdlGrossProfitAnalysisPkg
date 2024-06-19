@@ -4,10 +4,15 @@
 \alias{rule_rebateFobamount_add}
 \title{Title 增加计提依据}
 \usage{
-rule_rebateFobamount_add(token, FBillNo, FCountStandard)
+rule_rebateFobamount_add(token, FBillNo, FMaterialNumber, FCountStandard)
 }
 \arguments{
+\item{FMaterialNumber}{}
+
 \item{FCountStandard}{}
+}
+\value{
+
 }
 \description{
 Title 增加计提依据
