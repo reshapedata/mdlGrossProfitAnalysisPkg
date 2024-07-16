@@ -24,6 +24,7 @@ FCommisionStandard as 计提标准,
 Fcurrency as 币种,
 FFiscalFee as 打款手续费
  from rds_t_commision_rule_Amount
+ order by FBillNo
 ")
 
   res=tsda::sql_select2(token = token,sql = sql)
@@ -60,7 +61,7 @@ rule_commisionAmount_add<- function(token,Fbillno, FSaleOrgName,  FSaleMan,  Fco
   FCommisionStandard,Fcurrency,FFiscalFee) {
 
   sql=paste0(" insert into rds_t_commision_rule_Amount values('",Fbillno,"','",FSaleOrgName,"','",FSaleMan,"',
-  '",Fcountry,"','",FStartDate,"','",FEndDate,"','",FCustomerName,"','",FContidtionName,"','",FCustMtrlName,"',
+  '",Fcountry,"','",FStartDate,"','",FEndDate,"',N'",FCustomerName,"','",FContidtionName,"','",FCustMtrlName,"',
   '",FCommisionBy,"', '",FCommisionStandard,"'
   ,'",Fcurrency,"','",FFiscalFee,"')
 ")
