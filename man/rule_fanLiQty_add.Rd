@@ -17,7 +17,9 @@ rule_fanLiQty_add(
   FRebateType,
   FRebateRate,
   FEffectDate,
-  FExpireDate
+  FExpireDate,
+  FStartDate,
+  FEndDate
 )
 }
 \arguments{

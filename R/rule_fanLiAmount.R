@@ -19,7 +19,8 @@ FUnit as 计量单位,
 FRebateRate	as 返利_百分比,
 FEffectDate	as 生效日期,
 FExpireDate	as 失效日期
-from rds_t_rule_fanLiAmount")
+from rds_t_rule_fanLiAmount
+ order by FBillNo")
 
   res=tsda::sql_select2(token = token,sql = sql)
   return(res)

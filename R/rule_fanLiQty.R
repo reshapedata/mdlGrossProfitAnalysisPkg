@@ -21,8 +21,11 @@ FRebateProduct as 返利产品,
 FRebateType as 返利类型 ,
 FRebateRate	as 返利_百分比,
 FEffectDate	as 生效日期,
-FExpireDate	as 失效日期
-from rds_t_rule_fanLiQty")
+FExpireDate	as 失效日期,
+FStartDate as 返利开始日期,
+FEndDate  as 返利结束日期
+from rds_t_rule_fanLiQty
+             order by FBillNo")
 
   res=tsda::sql_select2(token = token,sql = sql)
   return(res)
@@ -52,9 +55,11 @@ from rds_t_rule_fanLiQty")
 #' @examples
 #' rule_fanLiQty_add()
 #'
-rule_fanLiQty_add<- function(token,FBillNo,FCustomerName,FIndexType,FIndexCustomerName,FStartRealQty,FEndRealQty,FUnit,FRebateProduct,FRebateType,FRebateRate,FEffectDate,FExpireDate) {
+rule_fanLiQty_add<- function(token,FBillNo,FCustomerName,FIndexType,FIndexCustomerName,FStartRealQty,FEndRealQty,FUnit,FRebateProduct,FRebateType,FRebateRate,FEffectDate,FExpireDate,FStartDate,FEndDate) {
 
-  sql=paste0("insert into rds_t_rule_fanLiQty values('",FBillNo,"','",FCustomerName,"','",FIndexType,"','",FIndexCustomerName,"','",FStartRealQty,"','",FEndRealQty,"','",FUnit,"','",FRebateProduct,"','",FRebateType,"','",FRebateRate,"','",FEffectDate,"','",FExpireDate,"')
+  sql=paste0("insert into rds_t_rule_fanLiQty values('",FBillNo,"','",FCustomerName,"','",FIndexType,"','",FIndexCustomerName,"',
+  '",FStartRealQty,"','",FEndRealQty,"','",FUnit,"','",FRebateProduct,"','",FRebateType,"','",FRebateRate,"','",FEffectDate,"','",FExpireDate,"',
+  '",FStartDate,"','",FEndDate,"')
 
 ")
 
