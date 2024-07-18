@@ -43,7 +43,7 @@ from Rds_t_rule_payment_USD
 rule_payment_month_add<- function(token,FContractNumber,FSaleOrgName,FCustomerName,Fyear,Fmonth,FPaymentAmount) {
 
   sql=paste0("
-  insert into Rds_t_rule_payment_USD values('",FContractNumber,"','",FSaleOrgName,"','",FCustomerName,"','",Fyear,"','",Fmonth,"','",FPaymentAmount,"')
+  insert into Rds_t_rule_payment_USD values('",FContractNumber,"','",FSaleOrgName,"',N'",FCustomerName,"','",Fyear,"','",Fmonth,"','",FPaymentAmount,"')
        ")
 
   res=tsda::sql_update2(token = token,sql_str = sql)
